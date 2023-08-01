@@ -94,10 +94,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnOpenAnAppWithChooser.setOnClickListener {
-//            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=1600+Amphitheatre+Parkway,+Mountain+View,+California"))
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("geo:41.142199, 29.131750"))
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=1600+Amphitheatre+Parkway,+Mountain+View,+California"))
+//            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("geo:41.142199, 29.131750"))
             // Create intent to show chooser
-            val chooser = Intent.createChooser(intent, "ilgili uygulamayi seciniz" ,null)
+            val chooser = Intent.createChooser(intent, "ilgili uygulamayi seciniz", null)
             // Try to invoke the intent.
             try {
                 startActivity(chooser)
@@ -121,13 +121,15 @@ class MainActivity : AppCompatActivity() {
 //                startActivity(intent)
 
 
-
             } catch (e: ActivityNotFoundException) {
                 Toast.makeText(this, "application was not found in this device", Toast.LENGTH_SHORT)
                     .show()
                 startActivity(
                     //to show specific app page
-                    Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.findwordgame.app"))
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse("https://play.google.com/store/apps/details?id=com.findwordgame.app")
+                    )
                     //to show developers page/apps
                     //Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/developer?id=mbApps"))
                 )
@@ -136,7 +138,7 @@ class MainActivity : AppCompatActivity() {
 
 
         btnSetAlarm.setOnClickListener {
-            createAlarm("this is my alarm message",12,5)
+            createAlarm("this is my alarm message", 12, 5)
         }
 
     }
